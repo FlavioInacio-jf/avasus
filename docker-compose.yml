@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  frontend:
+    container_name: avasus
+    build:
+      context: ./
+    image: "avasus"
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    networks:
+      - nginx_net
+
+networks:
+  nginx_net:
+    external: true
