@@ -1,6 +1,7 @@
 import { Montserrat } from '@next/font/google';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import { Footer, Header } from '../components';
 import '../styles/globals.css';
 
 const montserrat = Montserrat({
@@ -20,7 +21,9 @@ export const App = ({ Component, pageProps }: AppProps) => {
         />
       </Head>
       <div className={`${montserrat.variable}  ${montserrat.className}`}>
+        <Header />
         <Component {...pageProps} />
+        <Footer />
       </div>
     </>
   );
