@@ -11,11 +11,11 @@ export const Header: FC = () => {
           <Image
             src='/brands/brand-ava-sus-mixed-color.svg'
             alt='Logo Avasus'
-            width={200}
+            width={160}
             height={40}
           />
         </Link>
-        <nav className='font-semibold text-lg flex-1 ml-16'>
+        <nav className='font-semibold text flex-1 ml-16 text-[#2F2E41]'>
           <Link href='' className='mr-8'>
             Início
           </Link>
