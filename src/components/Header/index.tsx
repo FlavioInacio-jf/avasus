@@ -5,7 +5,7 @@ import { BsSearch } from 'react-icons/bs';
 
 export const Header: FC = () => {
   return (
-    <header className='w-full'>
+    <header className='w-full sticky'>
       <div className='max-w-[1700px] mx-auto py-[1.6rem] max-h-[7rem] flex items-center justify-between'>
         <Link href='/' prefetch={false} className='relative block'>
           <Image
