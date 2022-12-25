@@ -5,14 +5,14 @@ import { BsSearch } from 'react-icons/bs';
 
 export const Header: FC = () => {
   return (
-    <header className='w-full sticky'>
-      <div className='max-w-[1700px] mx-auto py-[1.6rem] max-h-[7rem] flex items-center justify-between'>
+    <header className='w-full h-[70px] sticky '>
+      <div className='max-w-[1700px] h-full mx-auto max-h-[6rem] flex items-center justify-between'>
         <Link href='/' prefetch={false} className='relative block'>
           <Image
             src='/brands/brand-ava-sus-mixed-color.svg'
             alt='Logo Avasus'
             width={160}
-            height={40}
+            height={50}
           />
         </Link>
         <nav className='font-semibold text flex-1 ml-16 text-[#2F2E41]'>
@@ -39,8 +39,8 @@ export const Header: FC = () => {
         <div className='flex'>
           <div className='flex-1'>
             <label className='sr-only'>Pesquisar</label>
-            <div className='relative flex items-center border-2 border-black/20 rounded-full px-5 py-2'>
-              <BsSearch className='text-xl text-[#545454] mr-2' />
+            <div className='relative flex items-center border-2 border-black/20 rounded-full px-5 h-[40px]'>
+              <BsSearch className='text text-[#545454] mr-2' />
               <input
                 type='search'
                 placeholder='Busca por um assunto...'

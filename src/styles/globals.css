@@ -34,11 +34,11 @@
 
 @layer components {
   .btn {
-    @apply inline-flex justify-center border border-transparent transition-colors ease-in-out duration-[0.3s] focus:ring-offset-2 disabled:opacity-75 disabled:pointer-events-none rounded-full font-semibold;
+    @apply inline-flex justify-center items-center border border-transparent transition-colors ease-in-out duration-[0.3s] focus:ring-offset-2 disabled:opacity-75 disabled:pointer-events-none rounded-full font-semibold;
   }
 
   .btn-lg {
-    @apply py-2 px-[1.875rem];
+    @apply px-[1.875rem] h-[40px];
   }
 
   .btn-secondary {
