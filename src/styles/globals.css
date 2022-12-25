@@ -33,6 +33,7 @@
 }
 
 @layer components {
+  /*Button styles*/
   .btn {
     @apply inline-flex justify-center items-center border border-transparent transition-colors ease-in-out duration-[0.3s] focus:ring-offset-2 disabled:opacity-75 disabled:pointer-events-none rounded-full font-semibold;
   }
@@ -48,6 +49,7 @@
   .btn-secondary-outline {
     @apply bg-transparent text-secondary hover:bg-secondary hover:text-white border border-secondary;
   }
+
  }
 
 

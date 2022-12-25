@@ -1,12 +1,12 @@
-import { NextPage } from 'next';
 import Image from 'next/image';
+import { FC } from 'react';
 import { A11y, Lazy, Navigation, Pagination, SwiperOptions } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-const Page: NextPage = () => {
+export const BannerHome: FC = () => {
   const params: SwiperOptions = {
     modules: [Navigation, A11y, Lazy, Pagination],
     preloadImages: false,
@@ -22,7 +22,7 @@ const Page: NextPage = () => {
     lazy: true,
   };
   return (
-    <section className='w-full relative mb-32'>
+    <section className='w-full relative'>
       <div className='absolute left-0 top-0 w-full h-[760px]'>
         <Image
           src='/banners/banner-home.png'
@@ -78,5 +78,3 @@ const Page: NextPage = () => {
     </section>
   );
 };
-
-export default Page;
