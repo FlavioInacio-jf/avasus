@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+
+  /*******  Swipper Variables *******/
+  --swiper-pagination-color: #FFFFFF;
+  --swiper-pagination-bullet-size: 8px;
+  --swiper-pagination-bullet-width: 16px;
+  --swiper-pagination-bullet-height: 17px;
+  --swiper-pagination-bullet-inactive-color: transparent;
+  --swiper-pagination-bullet-inactive-opacity: 1;
+  --swiper-pagination-bullet-opacity: 1;
+  --swiper-pagination-bullet-horizontal-gap: 7px;
+  --swiper-pagination-bullet-vertical-gap: 6px;
+}
+
+/******* Swiper customization *******/
+.swiper-pagination {
+  bottom: 64px !important;
+}
+.swiper-pagination-bullet {
+  width: var(--swiper-pagination-bullet-width);
+  height: var(--swiper-pagination-bullet-height);
+  border: 1px solid #FFFFFF;
+}
+
+.swiper-pagination-bullet-active { /** Marker styling of selected image in carousel */
+  width: 53px !important;
+  height: 15px !important;
+  border-radius: 5px !important;
+}
+
 @layer components {
   .btn {
     @apply inline-flex justify-center border border-transparent transition-colors ease-in-out duration-[0.3s] focus:ring-offset-2 disabled:opacity-75 disabled:pointer-events-none rounded-full font-semibold;
