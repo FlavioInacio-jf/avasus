@@ -7,6 +7,9 @@ const nextConfig = {
       { loader: '@next/font/google', options: { subsets: ['latin'] } },
     ],
   },
+  images: {
+    domains: ['avasus.ufrn.br'],
+  },
   pageExtensions: ['page.tsx', 'page.ts'],
 };
 

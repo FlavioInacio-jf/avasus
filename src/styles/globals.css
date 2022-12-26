@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-
+  --text-color-black: #2F2E41;
   /*******  Swipper Variables *******/
   --swiper-pagination-color: #FFFFFF;
   --swiper-pagination-bullet-size: 8px;
@@ -14,6 +14,16 @@
   --swiper-pagination-bullet-opacity: 1;
   --swiper-pagination-bullet-horizontal-gap: 7px;
   --swiper-pagination-bullet-vertical-gap: 6px;
+}
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+  body {
+  color: var(--text-color-black);
+  background-color: #FFFFFF;
+  scroll-behavior: smooth;
 }
 
 /******* Swiper customization *******/
