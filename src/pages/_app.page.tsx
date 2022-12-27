@@ -21,9 +21,9 @@ export const App = ({ Component, pageProps }: AppProps) => {
         />
       </Head>
       <div className={`${montserrat.variable}  ${montserrat.className}`}>
-        <Header />
+       {/*  <Header /> */}
         <Component {...pageProps} />
-        <Footer />
+       {/*  <Footer /> */}
       </div>
     </>
   );

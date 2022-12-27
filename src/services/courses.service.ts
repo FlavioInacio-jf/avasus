@@ -15,7 +15,7 @@ export const coursesService = {
   single: async (id: string): Promise<ICourse | undefined> => {
     try {
       const res = await get(`${Endpoint.COURSES}/${id}`);
-      return res.data.result;
+      return res.data;
     } catch (err) {
       console.error(err);
     }

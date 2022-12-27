@@ -60,6 +60,25 @@ html,
     @apply bg-transparent text-secondary hover:bg-secondary hover:text-white border border-secondary;
   }
 
+
+  /*Title*/
+  .title {
+    @apply font-semibold;
+  }
+  .title-primary {
+    @apply text-primary;
+  }
+  .title-2xl {
+    @apply text-[1.56rem] xss:text-xl xs:text-2xl sm:text-2xl leading-relaxed;
+  }
+
+  .title-3xl {
+    @apply text-3xl xss:text-xl xs:text-2xl sm:text-2xl;
+  }
+  .title-4xl {
+    @apply text-[2.5rem] xss:text-2xl xs:text-3xl sm:text-3xl md:text-4xl lg:text-4xl leading-relaxed;
+  }
+
  }
 
 

@@ -15,7 +15,7 @@ export const partnersService = {
   single: async (id: string): Promise<IPartner | undefined> => {
     try {
       const res = await get(`${Endpoint.PARTNERS}/${id}`);
-      return res.data.result;
+      return res.data;
     } catch (err) {
       console.error(err);
     }

@@ -13,7 +13,9 @@ export interface ICourse {
   avaliacao: string;
   numero_avaliacoes: number;
   sobre: string;
-  objetivo_geral: string;
+  objetivo_geral?: string;
+  objetivo_especifico?: string;
+  recursos_educacionais?: string;
   conteudo: string[];
   creditos: ICourseCredit[];
 }

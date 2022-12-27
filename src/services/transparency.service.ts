@@ -7,7 +7,7 @@ export const transparencyService = {
   single: async (): Promise<ITransparency | undefined> => {
     try {
       const res = await get(`${Endpoint.TRANSPARENCY}`);
-      return res.data.result;
+      return res.data;
     } catch (err) {
       console.error(err);
     }
