@@ -1,1 +1,1 @@
-export * from './time-for-revalidation.constant';
+export * from './pages-with-pagination.constant';

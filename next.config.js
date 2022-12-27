@@ -8,7 +8,7 @@ const nextConfig = {
     ],
   },
   images: {
-    domains: ['avasus.ufrn.br'],
+    domains: ['avasus.ufrn.br', 'placehold.it'],
   },
   pageExtensions: ['page.tsx', 'page.ts'],
 };

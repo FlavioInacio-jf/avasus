@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Card } from '../../../components';
+import { CardCourse } from '../../../components';
 
 export const EducacionalModule: FC = () => {
   const course = {
@@ -79,7 +79,7 @@ export const EducacionalModule: FC = () => {
               <button type='button'>Mais recentes</button>
             </li>
           </ul>
-          <Card course={course} />
+          <CardCourse course={course} />
         </div>
       </div>
     </section>

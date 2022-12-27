@@ -1,2 +1,2 @@
 export * from './display-quantity.util';
-export * from './with-ssr.util';
+export * from './with-pagination-ssr.util';
