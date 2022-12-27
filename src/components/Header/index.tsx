@@ -2,10 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
 import { BsSearch } from 'react-icons/bs';
+import { Endpoint } from '../../enums';
 
 export const Header: FC = () => {
   return (
-    <header className='w-full h-[70px] sticky '>
+    <header className='w-full h-[70px] sticky px-4'>
       <div className='max-w-[1700px] h-full mx-auto max-h-[6rem] flex items-center justify-between'>
         <Link href='/' prefetch={false} className='relative block'>
           <Image
@@ -13,25 +14,34 @@ export const Header: FC = () => {
             alt='Logo Avasus'
             width={160}
             height={50}
+            priority
           />
         </Link>
         <nav className='font-semibold text flex-1 ml-16 text-[#2F2E41]'>
-          <Link href='' className='mr-8'>
+          <Link href='' className='mr-8' prefetch={false}>
             Início
           </Link>
-          <Link href='' className='mr-8'>
+          <Link href='' className='mr-8' prefetch={false}>
             Sobre Nós
           </Link>
-          <Link href='' className='mr-8'>
+          <Link href={`/${Endpoint.COURSES}`} className='mr-8'>
             Cursos
           </Link>
-          <Link href='' className='mr-8'>
+          <Link
+            href={`/${Endpoint.PARTNERS}`}
+            className='mr-8'
+            prefetch={false}
+          >
             Parceiros
           </Link>
-          <Link href='' className='mr-8'>
+          <Link
+            href={`/${Endpoint.TRANSPARENCY}`}
+            className='mr-8'
+            prefetch={false}
+          >
             Transparência
           </Link>
-          <Link href='' className='mr-8'>
+          <Link href='' className='mr-8' prefetch={false}>
             Contato
           </Link>
         </nav>
