@@ -12,13 +12,13 @@ export const Footer: FC = () => {
           <p className='text-[1.375rem] font-semibold text-white text-center mb-8'>
             Realização
           </p>
-          <div className='flex justify-center'>
+          <div className='flex justify-center xss:flex-col xs:flex-col xss:items-center xs:items-center'>
             <Image
               src='/brands/brand-lais-white.svg'
               alt='Logo Lais'
               width={245}
               height={70}
-              className='mr-20'
+              className='mr-20 xs:mr-0 xs:mb-20 xss:mr-0 xss:mb-20'
             />
 
             <Image
@@ -30,47 +30,47 @@ export const Footer: FC = () => {
           </div>
         </div>
       </div>
-      <div className='bg-tertiary px-4 py-16 text-white'>
-        <div className='max-w-[1100px] mx-auto flex'>
+      <div className='bg-tertiary px-4 py-16 xss:py-8 xs:py-8 text-white'>
+        <div className='max-w-[1100px] mx-auto flex xs:flex-col xss:flex-col xss:items-center xs:items-center '>
           <div className='flex-1'>
             <Image
               src='/brands/brand-lais-white.svg'
               alt='Logo Lais'
               width={120}
               height={37}
-              className='mr-20 mb-4'
+              className='mr-20 mb-4 xss:mx-auto xs:mx-auto'
             />
             <p className='max-w-[200px]'>
               Laboratório de Inovação Tecnológica em Saúde.
             </p>
           </div>
-          <div className='flex-1'>
-            <p className='font-montserrat text-2xl font-semibold mb-4'>
+          <div className='flex-1 xss:mt-8 xs:mt-8'>
+            <p className='font-montserrat text-2xl font-semibold mb-4 xss:text-center xs:text-center'>
               Links Úteis
             </p>
-            <nav className='flex flex-col text font-normal'>
-              <Link href='' prefetch={false} className='mb-2'>
+            <nav className='flex flex-col xss:flex-row xs:flex-row xss:flex-wrap xs:flex-wrap xss:justify-center xs:justify-center xss:gap-2 xs:gap-2 font-normal'>
+              <Link href='' prefetch={false} className='mb-2 xss:mb-0 xs:mb-0'>
                 Início
               </Link>
-              <Link href='' prefetch={false} className='mb-2'>
+              <Link href='' prefetch={false} className='mb-2 xss:mb-0 xs:mb-0'>
                 Sobre Nós
               </Link>
-              <Link href='' prefetch={false} className='mb-2'>
+              <Link href='' prefetch={false} className='mb-2 xss:mb-0 xs:mb-0 '>
                 Módulos
               </Link>
-              <Link href='' prefetch={false} className='mb-2'>
+              <Link href='' prefetch={false} className='mb-2 xss:mb-0 xs:mb-0'>
                 Parceiros Transparência
               </Link>
-              <Link href='' prefetch={false} className='mb-2'>
+              <Link href='' prefetch={false} className=''>
                 Transparência
               </Link>
             </nav>
           </div>
-          <div className='flex-1'>
+          <div className='flex-1 xss:mt-8 xs:mt-8'>
             <p className='font-montserrat text-2xl font-semibold mb-4 ml-4'>
               Redes sociais
             </p>
-            <ul className='flex text font-normal'>
+            <ul className='flex xss:flex-wrap xss:justify-center text font-normal'>
               <li className='mr-2'>
                 <Link
                   href=''
@@ -113,7 +113,7 @@ export const Footer: FC = () => {
       </div>
       <div className='bg-quartenary px-4 flex items-center'>
         <div className='max-w-[1100px] mx-auto py-4'>
-          <p className='text-white font-normal text-center'>
+          <p className='text-white font-normal text-center xss:text-sm xs:text-sm'>
             2022 © LAIS (HUOL). Todos os direitos reservados
           </p>
         </div>
