@@ -23,7 +23,7 @@ export const BannerHome: FC = () => {
   };
   return (
     <section className='w-full relative'>
-      <div className='absolute left-0 top-0 w-full h-[760px]'>
+      <div className='absolute left-0 top-0 w-full h-[760px] xss:h-[460px] xs:h-[460px] sm:h-[460px] md:h-[460px]'>
         <Image
           src='/banners/banner-home.png'
           alt='Banner da Avasus '
@@ -33,10 +33,7 @@ export const BannerHome: FC = () => {
           priority
         />
       </div>
-      <div
-        className='w-full max-w-[1700px] mx-auto relative h-[760px]
-      '
-      >
+      <div className='w-full max-w-[1700px] mx-auto relative h-[760px] xss:h-[460px] xs:h-[460px] sm:h-[460px] md:h-[460px]'>
         <Swiper className='h-full' {...params}>
           <SwiperSlide className='flex items-center justify-center !w-full'>
             <div className='flex flex-col items-center justify-center'>
@@ -61,7 +58,7 @@ export const BannerHome: FC = () => {
         </Swiper>
         <button
           type='button'
-          className={`button-prev swiper-button-prev after:hidden relative !w-16 !h-16 flex items-center justify-center rounded-full !left-0 disabled:hidden`}
+          className={`button-prev swiper-button-prev after:hidden relative !w-16 !h-16 flex items-center justify-center rounded-full !left-0 disabled:hidden xss:!hidden xs:!hidden sm:!hidden`}
         >
           <Image src='/icons/arrow-left.svg' alt='' width={50} height={50} />
           <span className='sr-only'>Voltar</span>
@@ -69,7 +66,7 @@ export const BannerHome: FC = () => {
 
         <button
           type='button'
-          className={`button-next swiper-button-next after:hidden relative !w-16 !h-16 flex items-center justify-center rounded-full !right-0 disabled:hidden`}
+          className={`button-next swiper-button-next after:hidden relative !w-16 !h-16 flex items-center justify-center rounded-full !right-0 disabled:hidden xss:!hidden xs:!hidden sm:!hidden`}
         >
           <Image src='/icons/arrow-right.svg' alt='' width={50} height={50} />
           <span className='sr-only'>Avançar</span>
