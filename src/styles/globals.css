@@ -68,6 +68,11 @@ html,
   .title-primary {
     @apply text-primary;
   }
+
+  .title-black {
+    @apply text-black;
+  }
+
   .title-2xl {
     @apply text-[1.56rem] xss:text-xl xs:text-2xl sm:text-2xl leading-relaxed;
   }
