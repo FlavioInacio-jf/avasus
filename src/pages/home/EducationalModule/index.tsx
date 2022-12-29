@@ -5,7 +5,7 @@ import { TopRatedModulesTab } from './TopRatedModulesTab';
 
 type TabsType = 'top_rated' | 'latest' | 'popular';
 export const EducacionalModule: FC = () => {
-  const [currentTab, setCurrentTab] = useState<TabsType>('top_rated');
+  const [currentTab, setCurrentTab] = useState<TabsType>('popular');
 
   const tabsModules = {
     top_rated: <TopRatedModulesTab />,

@@ -2,13 +2,16 @@ import Link from 'next/link';
 import { FC } from 'react';
 import { useQuery } from 'react-query';
 import { CardCourse } from '../../../../components';
+import { USE_QUERY_DEFAULT_OPTIONS } from '../../../../constants';
+import { QueryKeys } from '../../../../enums';
 import { coursesService } from '../../../../services';
 
 export const TopRatedModulesTab: FC = () => {
-  const { data } = useQuery('dd', () => coursesService.all(''), {
-    refetchOnWindowFocus: false,
-    refetchIntervalInBackground: false,
-  });
+  const { data } = useQuery(
+    QueryKeys.BEST_RATED,
+    () => coursesService.all('_limit=3&_sort=avaliacao&_order=desc'),
+    USE_QUERY_DEFAULT_OPTIONS
+  );
   const courses = data || [];
 
   return (
