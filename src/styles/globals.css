@@ -49,7 +49,11 @@ html,
   }
 
   .btn-lg {
-    @apply px-[1.875rem] h-[40px];
+    @apply px-[1.875rem] h-[2.5rem];
+  }
+
+  .btn-xl {
+    @apply text-[1.56rem] h-[3.125rem] w-full max-w-[350px];
   }
 
   .btn-secondary {

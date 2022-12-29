@@ -5,6 +5,7 @@ import { FC, memo } from 'react';
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 import { Routes } from '../../enums';
 import { ICourseSummarized } from '../../interfaces';
+import { displayQuantity } from '../../utils';
 
 type CardProps = {
   course: ICourseSummarized;
@@ -69,7 +70,9 @@ export const CardCourse: FC<CardProps> = memo(
                       width={24}
                       height={19}
                     />
-                    <span className='inline-block ml-3'>{matriculados}</span>
+                    <span className='inline-block ml-3'>
+                      {displayQuantity(matriculados)}
+                    </span>
                   </div>
                 </li>
                 <li className='ml-4'>
@@ -132,7 +135,9 @@ export const CardCourse: FC<CardProps> = memo(
                     width={30}
                     height={24}
                   />
-                  <span className='inline-block ml-3'>{matriculados}</span>
+                  <span className='inline-block ml-3'>
+                    {displayQuantity(matriculados)}
+                  </span>
                 </div>
               </li>
               <li className='ml-5'>

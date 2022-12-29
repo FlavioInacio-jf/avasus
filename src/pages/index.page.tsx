@@ -1,9 +1,12 @@
-import { NextPage } from 'next';
+import { ReactElement } from 'react';
+import { queryClientService } from '../services';
+import { NextPageWithLayout } from '../types';
 import { BannerHome } from './home/BannerHome';
 import { contentsPartnersSection } from './home/contents-partners-section';
 import { EducacionalModule } from './home/EducationalModule';
+import { QueryClientProvider } from 'react-query';
 
-const Page: NextPage = () => {
+const Page: NextPageWithLayout = () => {
   return (
     <main className='w-full'>
       <BannerHome />
@@ -30,6 +33,14 @@ const Page: NextPage = () => {
         </div>
       </section>
     </main>
+  );
+};
+
+Page.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <QueryClientProvider client={queryClientService}>
+      {page}
+    </QueryClientProvider>
   );
 };
 

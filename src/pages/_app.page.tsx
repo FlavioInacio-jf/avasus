@@ -3,12 +3,18 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { Footer, Header } from '../components';
 import '../styles/globals.css';
+import { NextPageWithLayout } from '../types';
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
 
 const montserrat = Montserrat({
   weight: ['400', '500', '600', '700'],
   variable: '--font-montserrat',
 });
-export const App = ({ Component, pageProps }: AppProps) => {
+export const App = ({ Component, pageProps }: AppPropsWithLayout) => {
+  const getLayout = Component.getLayout ?? ((page) => page);
   return (
     <>
       <Head>
@@ -22,7 +28,7 @@ export const App = ({ Component, pageProps }: AppProps) => {
       </Head>
       <div className={`${montserrat.variable}  ${montserrat.className}`}>
         <Header />
-        <Component {...pageProps} />
+        {getLayout(<Component {...pageProps} />)}
         <Footer />
       </div>
     </>
