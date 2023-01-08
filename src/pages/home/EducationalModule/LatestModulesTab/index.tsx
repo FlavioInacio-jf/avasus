@@ -1,30 +1,26 @@
-import Link from 'next/link';
 import { FC } from 'react';
 import { useQuery } from 'react-query';
-import { CardCourse } from '../../../../components';
+import { CardCourse, CardCourseSkeleton } from '../../../../components';
 import { USE_QUERY_DEFAULT_OPTIONS } from '../../../../constants';
 import { QueryKeys } from '../../../../enums';
 import { coursesService } from '../../../../services';
 
 export const LatestModulesTab: FC = () => {
-  const { data } = useQuery(
+  const { data, isLoading } = useQuery(
     QueryKeys.LAST,
     () => coursesService.all('_limit=3&_sort=criado_em&_order=desc'),
     USE_QUERY_DEFAULT_OPTIONS
   );
   const courses = data || [];
   return (
-    <>
-      <div className='flex flex-col gap-8 mt-8'>
-        {courses.map((course) => (
-          <CardCourse key={course.id} course={course} />
-        ))}
-      </div>
-      <footer className='w-full flex justify-center mt-16'>
-        <Link href='' className='btn btn-secondary btn-xl'>
-          Ver mais
-        </Link>
-      </footer>
-    </>
+    <div className='flex flex-col xss:flex-row xs:flex-row sm:flex-row md:flex-row lg:flex-row xss:flex-wrap xs:flex-wrap sm:flex-wrap md:flex-wrap lg:flex-wrap xss:justify-center xs:justify-center sm:justify-center md:justify-center lg:justify-center gap-8 mt-8'>
+      {isLoading
+        ? Array.from({ length: 3 }, (_, index) => index + 1).map((key) => (
+            <CardCourseSkeleton key={key} />
+          ))
+        : courses.map((course) => (
+            <CardCourse key={course.id} course={course} />
+          ))}
+    </div>
   );
 };

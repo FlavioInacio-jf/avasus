@@ -119,6 +119,7 @@ export const CardCourse: FC<CardProps> = memo(
               className='object-cover'
             />
           </div>
+
           <div className='w-full flex xss:flex-col xs:flex-col sm:flex-col md:flex-col lg:flex-col justify-between items-center xss:flex-1 xs:flex-1 sm:flex-1 md:flex-1 lg:flex-1'>
             <div className='max-w-[270px] xss:max-w-full xs:max-w-full sm:max-w-full md:max-w-full lg:max-w-full'>
               <p className='font-semibold text-xl xss:text-lg xs:text-lg sm:text-lg md:text-lg'>
