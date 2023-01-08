@@ -22,20 +22,20 @@ const Page: NextPage<PageProps> = ({ transparency }) => {
   return (
     <>
       <Head />
-      <main className='w-full mb-[196px]'>
-        <section className='w-full px-4'>
+      <main className='w-full mb-[196px] xss:mb-16 xs:mb-28 sm:mb-28 md:mb-28'>
+        <section className='w-full px-4 mt-8'>
           <div className='max-w-[1110px] mx-auto'>
             <h2 className='title title-4xl title-primary text-center mb-8'>
               Transparência
             </h2>
-            <div className='grid grid-cols-2 gap-8'>
-              <div className='col-span-2 h-80'>
+            <div className='grid grid-cols-2 xss:grid-cols-1 xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 gap-8'>
+              <div className='col-span-2 xss:col-span-1 xs:col-span-1 sm:col-span-1 md:col-span-1 h-80 xss:h-auto xs:h-auto sm:h-auto md:h-auto'>
                 <Box>
                   <h3 className='title title-primary title-2xl text-center font-bold'>
                     Dados Gerais
                   </h3>
                   <div className='mt-[30px]'>
-                    <ul className='flex flex-wrap gap-y-[42px] justify-between'>
+                    <ul className='flex xss:grid xs:grid sm:grid md:grid xss:grid-cols-1 xs:grid-cols-1 sm:grid-cols-1  md:grid-cols-2 flex-wrap gap-y-[42px] justify-between'>
                       <li className='flex flex-col items-center'>
                         <div className='flex items-center font-bold'>
                           <Image
@@ -96,7 +96,7 @@ const Page: NextPage<PageProps> = ({ transparency }) => {
                           {displayQuantity(direito_certificacao)}
                         </span>
                       </li>
-                      <li className='w-full flex justify-center'>
+                      <li className='md:col-span-2 w-full flex xss:grid xs:grid sm:grid md:grid xss:grid-cols-1 xs:grid-cols-1 sm:grid-cols-1  md:grid-cols-2 flex-wrap gap-y-[42px] justify-between'>
                         <div className='flex flex-col items-center mr-[39px]'>
                           <div className='flex items-center font-bold'>
                             <Image

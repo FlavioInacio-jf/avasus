@@ -40,7 +40,7 @@ export const Header: FC = () => {
   }, [isMenuMobileOpen]);
   return (
     <header className='w-full h-[70px] px-4 shadow-[0_4px_4px_rgba(0,0,0,0.1)] bg-white sticky top-0 z-30'>
-      <div className='max-w-[1700px] h-full mx-auto max-h-[6rem] flex items-center justify-between'>
+      <div className='max-w-[1700px] h-full mx-auto max-h-[6rem] flex items-center justify-between relative'>
         <Link
           href='/'
           prefetch={false}
@@ -70,7 +70,7 @@ export const Header: FC = () => {
             }
           )}
         >
-          <ul className='flex items-center xss:flex-col xs:flex-col sm:flex-col md:flex-col lg:flex-col xss:items-start xs:items-start sm:items-start md:items-start lg:items-start'>
+          <ul className='flex items-center xss:flex-col xs:flex-col sm:flex-col md:flex-col lg:flex-col xss:items-start xs:items-start sm:items-start md:items-start lg:items-start whitespace-nowrap'>
             {Object.entries(NavigationBarLinks).map(([label, href]) => (
               <li
                 key={label}
