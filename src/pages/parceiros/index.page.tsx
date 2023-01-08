@@ -2,10 +2,11 @@ import { GetServerSideProps, GetServerSidePropsResult, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { BoxPaginate, CardPartner } from '../../components';
 import { TOTAL_RESULT_PER_PAGE } from '../../constants';
+import { withPaginationSSR } from '../../helpers';
 import { IPaginate, IPartner } from '../../interfaces';
 import { partnersService } from '../../services';
 import { PageWithPaginationRequestType } from '../../types';
-import { withPaginationSSR } from '../../utils';
+import { Head } from './head';
 
 interface PageProps extends IPaginate {
   partners: IPartner[];
@@ -21,34 +22,38 @@ const Page: NextPage<PageProps> = ({ partners, pagina, totalPages }) => {
     });
   };
   return (
-    <main>
-      <div className='w-full px-4'>
-        <div className='w-full max-w-[1110px] mx-auto my-8'>
-          <div className='text-[#808080] xss:text-sm xs:text-sm'>
-            Início / <span className='font-semibold text-black'>Parceiros</span>
+    <>
+      <Head />
+      <main>
+        <div className='w-full px-4'>
+          <div className='w-full max-w-[1110px] mx-auto my-8'>
+            <div className='text-[#808080] xss:text-sm xs:text-sm'>
+              Início /
+              <span className='font-semibold text-black'>Parceiros</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <section className='w-full px-4 mb-48 xss:mb-16 xs:mb-16 md:mb-16'>
-        <div className='max-w-[1110px] mx-auto'>
-          <h2 className='title title-primary title-4xl mb-8 xss:mb-4 xs:mb-4'>
-            Nossos parceiros
-          </h2>
-          <BoxPaginate
-            onPageChange={handlePageChange}
-            currentPage={Number(pagina)}
-            pageCount={totalPages}
-          >
-            <ul className='flex flex-wrap justify-center items-start gap-x-[29px] gap-y-16'>
-              {partners.map((partner) => (
-                <CardPartner key={partner.id} partner={partner} />
-              ))}
-            </ul>
-          </BoxPaginate>
-        </div>
-      </section>
-    </main>
+        <section className='w-full px-4 mb-48 xss:mb-16 xs:mb-16 md:mb-16'>
+          <div className='max-w-[1110px] mx-auto'>
+            <h2 className='title title-primary title-4xl mb-8 xss:mb-4 xs:mb-4'>
+              Nossos parceiros
+            </h2>
+            <BoxPaginate
+              onPageChange={handlePageChange}
+              currentPage={Number(pagina)}
+              pageCount={totalPages}
+            >
+              <ul className='flex flex-wrap justify-center items-start gap-x-[29px] gap-y-16'>
+                {partners.map((partner) => (
+                  <CardPartner key={partner.id} partner={partner} />
+                ))}
+              </ul>
+            </BoxPaginate>
+          </div>
+        </section>
+      </main>
+    </>
   );
 };
 

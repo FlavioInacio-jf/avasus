@@ -5,7 +5,7 @@ import { FC, memo } from 'react';
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
 import { Routes } from '../../enums';
 import { ICourseSummarized } from '../../interfaces';
-import { displayQuantity } from '../../utils';
+import { displayQuantity } from '../../helpers';
 
 type CardProps = {
   course: ICourseSummarized;

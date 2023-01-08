@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FC, useEffect, useState } from 'react';
 import { BsList, BsSearch, BsX } from 'react-icons/bs';
-import { NavigationBarLinks } from '../../enums';
+import { NavigationBarLinks, Routes } from '../../../enums';
 
 export const Header: FC = () => {
   const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false);
@@ -104,14 +104,14 @@ export const Header: FC = () => {
             <li className='xss:order-1 xs:order-1 sm:order-1 md:order-1 lg:order-1 xss:w-full xs:w-full sm:w-full md:w-full lg:w-full xss:py-8 xs:py-8 sm:py-8 md:py-8 lg:py-8'>
               <div className='flex xss:flex-wrap xss:px-4 xs:px-4 sm:px-4 md:px-4 lg:px-4'>
                 <Link
-                  href='/'
+                  href={`/${Routes.MY_ACCOUNT}`}
                   prefetch={false}
                   className='btn btn-lg btn-secondary-outline ml-4 xss:ml-0 xs:ml-0 sm:ml-0 md:ml-0 lg:ml-0 xss:flex-1 xs:flex-1 sm:flex-1 md:flex-1 lg:flex-1'
                 >
                   Entrar
                 </Link>
                 <Link
-                  href='/'
+                  href={`/${Routes.MY_ACCOUNT}/${Routes.CREATE_ACCOUNT}`}
                   prefetch={false}
                   className='btn btn-lg btn-secondary ml-4 xss:flex-1 xs:flex-1 sm:flex-1 md:flex-1 lg:flex-1'
                 >
