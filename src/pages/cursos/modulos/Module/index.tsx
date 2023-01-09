@@ -68,7 +68,7 @@ export const CourseModule: FC<CourseModuleProps> = ({
         onPageChange={handlePageChange}
         totalResultsAlredyViewed={totalResultsAlredyViewed}
       >
-        <div className='flex flex-wrap justify-center items-start gap-x-[29px] gap-y-16'>
+        <div className='flex flex-wrap justify-center gap-x-[29px] gap-y-16'>
           {isLoading
             ? Array.from({ length: 3 }, (_, index) => index + 1).map((key) => (
                 <CardCourseSkeleton key={key} />

@@ -44,7 +44,7 @@ const Page: NextPageWithLayout<PageProps> = ({
             onPageChange={handlePageChange}
             totalResultsAlredyViewed={totalResultsAlredyViewed}
           >
-            <ul className='flex flex-wrap justify-center items-start gap-x-[29px] gap-y-16'>
+            <ul className='flex flex-wrap justify-center gap-x-[29px] gap-y-16'>
               {courses.map((course) => (
                 <CardCourse key={course.id} course={course} expanded />
               ))}

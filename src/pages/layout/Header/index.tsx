@@ -1,11 +1,14 @@
 import csn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { FC, useEffect, useState } from 'react';
 import { BsList, BsSearch, BsX } from 'react-icons/bs';
 import { NavigationBarLinks, Routes } from '../../../enums';
 
 export const Header: FC = () => {
+  const router = useRouter();
+
   const [isMenuMobileOpen, setIsMenuMobileOpen] = useState(false);
   const [windowSize, setWindowSize] = useState(0);
 
@@ -38,6 +41,13 @@ export const Header: FC = () => {
       document.body.style.overflow = 'auto';
     }
   }, [isMenuMobileOpen]);
+
+  const styleIfCurrentPage = (page: string) => {
+    const currentTabStyle = 'text-[#2F2E41] pointer-events-none cursor-none';
+
+    if (router.pathname === page) return currentTabStyle;
+    return '';
+  };
   return (
     <header className='w-full h-[70px] px-4 shadow-[0_4px_4px_rgba(0,0,0,0.1)] bg-white sticky top-0 z-30'>
       <div className='max-w-[1700px] h-full mx-auto max-h-[6rem] flex items-center justify-between relative'>
@@ -63,7 +73,7 @@ export const Header: FC = () => {
         </button>
         <nav
           className={csn(
-            'font-semibold text flex-1 ml-16 bg-white text-[#2F2E41] xss:w-screen xs:w-screen sm:w-screen md:w-screen lg:w-screen xss:min-h-screen xs:min-h-screen sm:min-h-screen md:min-h-screen lg:min-h-screen xss:fixed xs:fixed sm:fixed md:fixed lg:fixed xss:top-[70px] xs:top-[70px] sm:top-[70px] md:top-[70px] lg:top-[70px] xss:left-0 xs:left-0  sm:left-0  md:left-0 lg:left-0 xss:ml-0 xs:ml-0 sm:ml-0 md:ml-0 lg:ml-0',
+            'font-semibold flex-1 ml-16 bg-white xss:w-screen xs:w-screen sm:w-screen md:w-screen lg:w-screen xss:min-h-screen xs:min-h-screen sm:min-h-screen md:min-h-screen lg:min-h-screen xss:fixed xs:fixed sm:fixed md:fixed lg:fixed xss:top-[70px] xs:top-[70px] sm:top-[70px] md:top-[70px] lg:top-[70px] xss:left-0 xs:left-0  sm:left-0  md:left-0 lg:left-0 xss:ml-0 xs:ml-0 sm:ml-0 md:ml-0 lg:ml-0',
             {
               'xss:hidden xs:hidden sm:hidden md:hidden lg:hidden':
                 !isMenuMobileOpen,
@@ -74,7 +84,11 @@ export const Header: FC = () => {
             {Object.entries(NavigationBarLinks).map(([label, href]) => (
               <li
                 key={label}
-                className='mr-8 xss:mr-0 xs:mr-0 sm:mr-0 md:mr-0 lg:mr-0 xss:w-full xs:w-full  sm:w-full md:w-full lg:w-full xss:px-4 xs:px-4 sm:px-4 md:px-4 lg:px-4 xss:order-2 xs:order-2 sm:order-2 md:order-2 lg:order-2'
+                className={csn(
+                  `text-[#707070] text-lg mr-8 xss:mr-0 xs:mr-0 sm:mr-0 md:mr-0 lg:mr-0 xss:w-full xs:w-full  sm:w-full md:w-full lg:w-full xss:px-4 xs:px-4 sm:px-4 md:px-4 lg:px-4 xss:order-2 xs:order-2 sm:order-2 md:order-2 lg:order-2 ${styleIfCurrentPage(
+                    href
+                  )}`
+                )}
                 onClick={handleCloseMenuMobile}
                 onKeyPress={handleCloseMenuMobile}
               >
@@ -104,14 +118,14 @@ export const Header: FC = () => {
             <li className='xss:order-1 xs:order-1 sm:order-1 md:order-1 lg:order-1 xss:w-full xs:w-full sm:w-full md:w-full lg:w-full xss:py-8 xs:py-8 sm:py-8 md:py-8 lg:py-8'>
               <div className='flex xss:flex-wrap xss:px-4 xs:px-4 sm:px-4 md:px-4 lg:px-4'>
                 <Link
-                  href={`/${Routes.MY_ACCOUNT}`}
+                  href={`/${Routes['Minha conta']}`}
                   prefetch={false}
                   className='btn btn-lg btn-secondary-outline ml-4 xss:ml-0 xs:ml-0 sm:ml-0 md:ml-0 lg:ml-0 xss:flex-1 xs:flex-1 sm:flex-1 md:flex-1 lg:flex-1'
                 >
                   Entrar
                 </Link>
                 <Link
-                  href={`/${Routes.MY_ACCOUNT}/${Routes.CREATE_ACCOUNT}`}
+                  href={`/${Routes['Minha conta']}/${Routes['Criar conta']}`}
                   prefetch={false}
                   className='btn btn-lg btn-secondary ml-4 xss:flex-1 xs:flex-1 sm:flex-1 md:flex-1 lg:flex-1'
                 >

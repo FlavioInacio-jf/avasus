@@ -51,11 +51,7 @@ const Page: NextPageWithLayout<PageProps> = ({ transparency }) => {
     ],
   };
   const geoChartData = usuarios_por_estado.map(
-    ({ estados, direito_certificacao, usuarios_totais }) => [
-      `BR-${estados}`,
-      direito_certificacao,
-      usuarios_totais,
-    ]
+    ({ estados, usuarios_totais }) => [`BR-${estados}`, usuarios_totais]
   );
   return (
     <>
@@ -235,14 +231,7 @@ const Page: NextPageWithLayout<PageProps> = ({ transparency }) => {
                     <div className='w-fit h-fit mt-4 mx-auto flex items-center'>
                       <Chart
                         chartType='GeoChart'
-                        data={[
-                          [
-                            'State',
-                            'Direito a certificacão',
-                            'Usuários totais',
-                          ],
-                          ...geoChartData,
-                        ]}
+                        data={[['State', 'Usuários totais'], ...geoChartData]}
                         options={{
                           responsive: true,
                           backgroundColor: 'transparent',

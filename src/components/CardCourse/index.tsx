@@ -47,7 +47,7 @@ export const CardCourse: FC<CardProps> = memo(
     if (expanded) {
       return (
         <article className='w-full max-w-[350px] '>
-          <div className='flex flex-col'>
+          <div className='flex flex-col h-full'>
             <Image
               src={capa}
               alt={`capa ${titulo}`}
@@ -95,9 +95,9 @@ export const CardCourse: FC<CardProps> = memo(
                 {resumo}
               </p>
             </div>
-            <footer className='flex justify-end'>
+            <footer className='flex justify-end mt-auto'>
               <Link
-                href={`/${Routes.COURSES}/${Routes.COURSE_MODULE}/${id}`}
+                href={`/${Routes.Cursos}/${Routes.Módulos}/${id}`}
                 className='text-secondary font-semibold text-lg whitespace-nowrap'
                 prefetch={false}
               >
@@ -161,7 +161,7 @@ export const CardCourse: FC<CardProps> = memo(
               </li>
             </ul>
             <Link
-              href={`/${Routes.COURSES}/${Routes.COURSE_MODULE}/${id}`}
+              href={`/${Routes.Cursos}/${Routes['Módulos']}/${id}`}
               className='btn btn-lg btn-secondary ml-5 xss:ml-0 xs:ml-0 sm:ml-0 md:ml-0 lg:ml-0 w-44 xss:w-full xs:w-full sm:w-full md:w-full lg:w-full whitespace-nowrap xss:mt-4 xs:mt-4 sm:mt-4 md:mt-4 lg:mt-4'
               prefetch={false}
             >

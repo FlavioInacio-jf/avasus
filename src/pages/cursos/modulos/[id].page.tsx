@@ -41,10 +41,10 @@ const Page: NextPage<IPageProps> = ({ course }) => {
       <div className='w-full'>
         <section className='w-full h-[270px] relative pb-16 pt-8 px-4'>
           <Image
-            src={'/banners/banner-course-profile.svg'}
-            alt='Banner da página de perfil de um determinado curso'
+            src={course.capa}
+            alt={course.titulo}
             fill
-            className='object-cover absolute z-10'
+            className='object-cover object-center absolute z-10 brightness-50'
             priority
             quality={100}
           />
@@ -115,39 +115,44 @@ const Page: NextPage<IPageProps> = ({ course }) => {
               </h4>
               <p className='text-black leading-relaxed text-justify'>{sobre}</p>
             </article>
-            <article className='mt-8'>
-              <h4 className='title title-primary title-2xl text-center mb-8'>
-                Objetivos
-              </h4>
-              <div>
-                <RenderIf condition={!!objetivo_geral}>
-                  <div>
-                    <span className='inline-block font-bold mb-3'>
-                      Objetivos Geral
-                    </span>
-                    <p className='text-black leading-relaxed text-justify'>
-                      {objetivo_geral}
-                    </p>
-                  </div>
-                </RenderIf>
+            <RenderIf
+              condition={!!objetivo_geral || !!course?.objetivo_especifico}
+            >
+              <article className='mt-8'>
+                <h4 className='title title-primary title-2xl text-center mb-8'>
+                  Objetivos
+                </h4>
+                <div>
+                  <RenderIf condition={!!objetivo_geral}>
+                    <div>
+                      <span className='inline-block font-bold mb-3'>
+                        Objetivos Geral
+                      </span>
+                      <p className='text-black leading-relaxed text-justify'>
+                        {objetivo_geral}
+                      </p>
+                    </div>
+                  </RenderIf>
 
-                <RenderIf condition={!!course?.objetivo_especifico}>
-                  <div className='mt-8'>
-                    <span className='inline-block font-bold mb-3'>
-                      Objetivos Específicos
-                    </span>
-                    <ul className='list-disc list-inside'>
-                      {course.objetivo_especifico
-                        ?.substring(1)
-                        .split('-')
-                        .map((objective, key) => (
-                          <li key={key}>{objective}</li>
-                        ))}
-                    </ul>
-                  </div>
-                </RenderIf>
-              </div>
-            </article>
+                  <RenderIf condition={!!course?.objetivo_especifico}>
+                    <div className='mt-8'>
+                      <span className='inline-block font-bold mb-3'>
+                        Objetivos Específicos
+                      </span>
+                      <ul className='list-disc list-inside'>
+                        {course.objetivo_especifico
+                          ?.substring(1)
+                          .split('-')
+                          .map((objective, key) => (
+                            <li key={key}>{objective}</li>
+                          ))}
+                      </ul>
+                    </div>
+                  </RenderIf>
+                </div>
+              </article>
+            </RenderIf>
+
             <RenderIf condition={!!course?.recursos_educacionais}>
               <article className='mt-8'>
                 <h4 className='title title-primary title-2xl text-center mb-8'>
