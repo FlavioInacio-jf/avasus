@@ -4,3 +4,4 @@ export * from './RenderIf';
 export * from './BoxPaginate';
 export * from './Skeletons';
 export * from './HeadBase';
+export * from './Tabs';
