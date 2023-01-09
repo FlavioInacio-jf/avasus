@@ -6,7 +6,7 @@ import {
   Tooltip,
 } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { GetServerSideProps, GetServerSidePropsResult, NextPage } from 'next';
+import { GetServerSideProps, GetServerSidePropsResult } from 'next';
 import Image from 'next/image';
 import { ReactElement } from 'react';
 import { Pie } from 'react-chartjs-2';
@@ -15,6 +15,7 @@ import { displayQuantity } from '../../helpers';
 import { ITransparency } from '../../interfaces';
 import { transparencyService } from '../../services';
 import { NextPageWithLayout } from '../../types';
+import { RootLayout } from '../layout';
 import { BreadCrumbs } from '../layout/BreadCrumbs';
 
 import { Box } from './Box';
@@ -271,7 +272,11 @@ const Page: NextPageWithLayout<PageProps> = ({ transparency }) => {
 };
 
 Page.getLayout = function getLayout(page: ReactElement) {
-  return <BreadCrumbs>{page} </BreadCrumbs>;
+  return (
+    <RootLayout>
+      <BreadCrumbs>{page}</BreadCrumbs>
+    </RootLayout>
+  );
 };
 
 export const getServerSideProps: GetServerSideProps = async (): Promise<

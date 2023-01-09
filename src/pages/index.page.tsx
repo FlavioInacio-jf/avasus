@@ -6,6 +6,7 @@ import { BannerHome } from './home/BannerHome';
 import { contentsPartnersSection } from './home/contents-partners-section';
 import { EducacionalModule } from './home/EducationalModule';
 import { Head } from './home/head';
+import { RootLayout } from './layout';
 
 const Page: NextPageWithLayout = () => {
   return (
@@ -43,7 +44,7 @@ const Page: NextPageWithLayout = () => {
 Page.getLayout = function getLayout(page: ReactElement) {
   return (
     <QueryClientProvider client={queryClientService}>
-      {page}
+      <RootLayout> {page}</RootLayout>
     </QueryClientProvider>
   );
 };

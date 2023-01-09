@@ -124,6 +124,7 @@ export const Header: FC = () => {
                 >
                   Entrar
                 </Link>
+
                 <Link
                   href={`/${Routes['Minha conta']}/${Routes['Criar conta']}`}
                   prefetch={false}

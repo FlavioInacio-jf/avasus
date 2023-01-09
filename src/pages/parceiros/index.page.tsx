@@ -6,6 +6,7 @@ import { withPaginationSSR } from '../../helpers';
 import { IPaginate, IPartner } from '../../interfaces';
 import { partnersService } from '../../services';
 import { NextPageWithLayout, PageWithPaginationRequestType } from '../../types';
+import { RootLayout } from '../layout';
 import { BreadCrumbs } from '../layout/BreadCrumbs';
 import { Head } from './head';
 
@@ -57,7 +58,11 @@ const Page: NextPageWithLayout<PageProps> = ({
 };
 
 Page.getLayout = function getLayout(page: ReactElement) {
-  return <BreadCrumbs>{page} </BreadCrumbs>;
+  return (
+    <RootLayout>
+      <BreadCrumbs>{page}</BreadCrumbs>
+    </RootLayout>
+  );
 };
 
 export const getServerSideProps: GetServerSideProps =

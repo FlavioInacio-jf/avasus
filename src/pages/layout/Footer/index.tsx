@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { FC } from 'react';
 import { BsInstagram, BsTwitter } from 'react-icons/bs';
 import { FaFacebookF } from 'react-icons/fa';
+import { Routes } from '../../../enums';
 
 export const Footer: FC = () => {
   return (
@@ -49,19 +50,35 @@ export const Footer: FC = () => {
               Links Úteis
             </p>
             <nav className='flex flex-col xss:flex-row xs:flex-row xss:flex-wrap xs:flex-wrap xss:justify-center xs:justify-center xss:gap-2 xs:gap-2 font-normal'>
-              <Link href='' prefetch={false} className='mb-2 xss:mb-0 xs:mb-0'>
+              <Link href='/' prefetch={false} className='mb-2 xss:mb-0 xs:mb-0'>
                 Início
               </Link>
-              <Link href='' prefetch={false} className='mb-2 xss:mb-0 xs:mb-0'>
+              <Link
+                href={`/${Routes['Sobre nós']}`}
+                prefetch={false}
+                className='mb-2 xss:mb-0 xs:mb-0'
+              >
                 Sobre Nós
               </Link>
-              <Link href='' prefetch={false} className='mb-2 xss:mb-0 xs:mb-0 '>
+              <Link
+                href={`/${Routes['Cursos']}/${Routes['Módulos']}`}
+                prefetch={false}
+                className='mb-2 xss:mb-0 xs:mb-0 '
+              >
                 Módulos
               </Link>
-              <Link href='' prefetch={false} className='mb-2 xss:mb-0 xs:mb-0'>
+              <Link
+                href={`/${Routes['Parceiros']}`}
+                prefetch={false}
+                className='mb-2 xss:mb-0 xs:mb-0'
+              >
                 Parceiros Transparência
               </Link>
-              <Link href='' prefetch={false} className=''>
+              <Link
+                href={`/${Routes['Transparência']}`}
+                prefetch={false}
+                className=''
+              >
                 Transparência
               </Link>
             </nav>

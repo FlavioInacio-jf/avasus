@@ -3,15 +3,17 @@ import {
   GetStaticPathsResult,
   GetStaticProps,
   GetStaticPropsResult,
-  NextPage,
 } from 'next';
 import Image from 'next/image';
 import { ParsedUrlQuery } from 'querystring';
+import { ReactElement } from 'react';
 import { RenderIf } from '../../../components';
 import { COURSE_REVALIDATE } from '../../../constants';
 import { displayQuantity, generateStarReviews } from '../../../helpers';
 import { ICourse } from '../../../interfaces';
 import { coursesService } from '../../../services';
+import { NextPageWithLayout } from '../../../types';
+import { RootLayout } from '../../layout';
 import { CourseCreditCarousel } from './CourseCreditCarousel';
 import { Head } from './head';
 
@@ -22,7 +24,7 @@ interface IPageProps {
   course: ICourse;
 }
 
-const Page: NextPage<IPageProps> = ({ course }) => {
+const Page: NextPageWithLayout<IPageProps> = ({ course }) => {
   const {
     titulo,
     parceiros,
@@ -173,6 +175,10 @@ const Page: NextPage<IPageProps> = ({ course }) => {
       </div>
     </>
   );
+};
+
+Page.getLayout = function getLayout(page: ReactElement) {
+  return <RootLayout>{page}</RootLayout>;
 };
 
 export const getStaticPaths: GetStaticPaths = async (): Promise<

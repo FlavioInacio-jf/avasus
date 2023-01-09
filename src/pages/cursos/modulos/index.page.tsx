@@ -5,6 +5,7 @@ import { TabPanel } from '../../../components/Tabs/TabPanel';
 import { CourseQueryKeys } from '../../../enums';
 import { queryClientService } from '../../../services';
 import { NextPageWithLayout } from '../../../types';
+import { RootLayout } from '../../layout';
 import { Head } from './head';
 import { CourseModule } from './Module';
 
@@ -78,7 +79,7 @@ const Page: NextPageWithLayout = () => {
 Page.getLayout = function getLayout(page: ReactElement) {
   return (
     <QueryClientProvider client={queryClientService}>
-      {page}
+      <RootLayout>{page}</RootLayout>
     </QueryClientProvider>
   );
 };

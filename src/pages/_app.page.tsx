@@ -28,7 +28,7 @@ export const App = ({ Component, pageProps }: AppPropsWithLayout) => {
         <link rel='shortcut icon' href='/favicon.ico' />
       </Head>
       <main className={`${montserrat.variable}  ${montserrat.className}`}>
-        <RootLayout>{getLayout(<Component {...pageProps} />)}</RootLayout>
+        {getLayout(<Component {...pageProps} />)}
       </main>
     </>
   );

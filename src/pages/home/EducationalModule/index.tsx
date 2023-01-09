@@ -43,7 +43,7 @@ export const EducacionalModule: FC = () => {
         <footer className='w-full flex justify-center mt-16'>
           <Link
             href={`/${Routes.Cursos}`}
-            className='btn btn-secondary btn-xl'
+            className='btn btn-secondary btn-xl w-full max-w-[300px]'
             prefetch={false}
           >
             Ver mais
