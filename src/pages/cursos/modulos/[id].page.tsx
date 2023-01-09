@@ -38,7 +38,7 @@ const Page: NextPage<IPageProps> = ({ course }) => {
   return (
     <>
       <Head />
-      <main className='w-full'>
+      <div className='w-full'>
         <section className='w-full h-[270px] relative pb-16 pt-8 px-4'>
           <Image
             src={'/banners/banner-course-profile.svg'}
@@ -165,7 +165,7 @@ const Page: NextPage<IPageProps> = ({ course }) => {
             </article>
           </div>
         </section>
-      </main>
+      </div>
     </>
   );
 };

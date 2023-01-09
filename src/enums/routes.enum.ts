@@ -1,10 +1,10 @@
 export enum Routes {
-  COURSE_MODULE = 'modulos',
-  COURSES = 'cursos',
-  PARTNERS = 'parceiros',
-  TRANSPARENCY = 'transparencia',
-  ABAOUT_US = 'sobre-nos',
-  MY_ACCOUNT = 'minha-conta',
-  CONTACT = 'contato',
-  CREATE_ACCOUNT = 'criar-conta',
+  'Módulos' = 'modulos',
+  'Cursos' = 'cursos',
+  'Parceiros' = 'parceiros',
+  'Transparência' = 'transparencia',
+  'Sobre nós' = 'sobre-nos',
+  'Minha conta' = 'minha-conta',
+  'Contato' = 'contato',
+  'Criar conta' = 'criar-conta',
 }

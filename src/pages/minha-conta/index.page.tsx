@@ -5,7 +5,7 @@ const Page: NextPage = () => {
   return (
     <>
       <Head />
-      <main className='w-full'>Minha conta</main>
+      <div className='w-full'>Minha conta</div>
     </>
   );
 };

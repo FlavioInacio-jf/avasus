@@ -11,7 +11,7 @@ const Page: NextPageWithLayout = () => {
   return (
     <>
       <Head />
-      <main className='w-full'>
+      <div className='w-full'>
         <BannerHome />
         <EducacionalModule />
         <section className='w-full px-4 mt-24 mb-32 xss:mb-16 xs:mb-16 sm:mb-16 md:mb-16'>
@@ -35,7 +35,7 @@ const Page: NextPageWithLayout = () => {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </>
   );
 };

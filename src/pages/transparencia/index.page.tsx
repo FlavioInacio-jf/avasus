@@ -8,11 +8,14 @@ import {
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { GetServerSideProps, GetServerSidePropsResult, NextPage } from 'next';
 import Image from 'next/image';
+import { ReactElement } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart } from 'react-google-charts';
 import { displayQuantity } from '../../helpers';
 import { ITransparency } from '../../interfaces';
 import { transparencyService } from '../../services';
+import { NextPageWithLayout } from '../../types';
+import { BreadCrumbs } from '../layout/BreadCrumbs';
 
 import { Box } from './Box';
 import { Head } from './head';
@@ -24,7 +27,7 @@ const colorsheme = ['#FFFFFF', '#D2202C', '#707070', '#2F2E41'];
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const Page: NextPage<PageProps> = ({ transparency }) => {
+const Page: NextPageWithLayout<PageProps> = ({ transparency }) => {
   const { dados_gerais, usuarios_por_curso, usuarios_por_estado } =
     transparency;
   const {
@@ -57,7 +60,7 @@ const Page: NextPage<PageProps> = ({ transparency }) => {
   return (
     <>
       <Head />
-      <main className='w-full mb-[196px] xss:mb-16 xs:mb-28 sm:mb-28 md:mb-28'>
+      <div className='w-full mb-[196px] xss:mb-16 xs:mb-28 sm:mb-28 md:mb-28'>
         <section className='w-full px-4 mt-8'>
           <div className='max-w-[1110px] mx-auto'>
             <h2 className='title title-4xl title-primary text-center mb-8'>
@@ -273,9 +276,13 @@ const Page: NextPage<PageProps> = ({ transparency }) => {
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </>
   );
+};
+
+Page.getLayout = function getLayout(page: ReactElement) {
+  return <BreadCrumbs>{page} </BreadCrumbs>;
 };
 
 export const getServerSideProps: GetServerSideProps = async (): Promise<
