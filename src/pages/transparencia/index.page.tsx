@@ -263,7 +263,7 @@ const Page: NextPage<PageProps> = ({ transparency }) => {
                             isHtml: true,
                           },
                         }}
-                        mapsApiKey='AIzaSyB2xcE2fyWJXfOOHxkMglQvBwfqdJtpCuE'
+                        mapsApiKey={process.env.MAPS_API_KEY}
                         chartLanguage='pt-BR'
                       />
                     </div>

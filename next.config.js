@@ -13,6 +13,7 @@ const nextConfig = {
   pageExtensions: ['page.tsx', 'page.ts'],
   env: {
     API_URL: process.env.API_URL,
+    MAPS_API_KEY: process.env.MAPS_API_KEY,
   },
 };
 
