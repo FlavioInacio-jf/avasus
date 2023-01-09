@@ -1,4 +1,6 @@
 export interface IPaginate {
-  pagina: string;
+  page: number;
   totalPages: number;
+  totalCount: number;
+  totalResultsAlredyViewed: number;
 }

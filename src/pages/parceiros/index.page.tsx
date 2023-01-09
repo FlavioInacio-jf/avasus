@@ -1,7 +1,6 @@
 import { GetServerSideProps, GetServerSidePropsResult, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { BoxPaginate, CardPartner } from '../../components';
-import { TOTAL_RESULT_PER_PAGE } from '../../constants';
 import { withPaginationSSR } from '../../helpers';
 import { IPaginate, IPartner } from '../../interfaces';
 import { partnersService } from '../../services';
@@ -11,14 +10,20 @@ import { Head } from './head';
 interface PageProps extends IPaginate {
   partners: IPartner[];
 }
-const Page: NextPage<PageProps> = ({ partners, pagina, totalPages }) => {
+const Page: NextPage<PageProps> = ({
+  partners,
+  page,
+  totalPages,
+  totalCount,
+  totalResultsAlredyViewed,
+}) => {
   const router = useRouter();
 
   const handlePageChange = (selectedItem: { selected: number }) => {
     const currentPage = (selectedItem.selected + 1).toString();
     router.push({
       pathname: `${router.pathname}`,
-      query: { ...router.query, pagina: currentPage },
+      query: { ...router.query, page: currentPage },
     });
   };
   return (
@@ -40,9 +45,11 @@ const Page: NextPage<PageProps> = ({ partners, pagina, totalPages }) => {
               Nossos parceiros
             </h2>
             <BoxPaginate
+              page={page}
+              totalPages={totalPages}
+              totalCount={totalCount}
               onPageChange={handlePageChange}
-              currentPage={Number(pagina)}
-              pageCount={totalPages}
+              totalResultsAlredyViewed={totalResultsAlredyViewed}
             >
               <ul className='flex flex-wrap justify-center items-start gap-x-[29px] gap-y-16'>
                 {partners.map((partner) => (
@@ -57,27 +64,27 @@ const Page: NextPage<PageProps> = ({ partners, pagina, totalPages }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = withPaginationSSR(
-  async (ctx): Promise<GetServerSidePropsResult<PageProps>> => {
-    const req = ctx.req as PageWithPaginationRequestType;
-    const page = req.page;
-    const totalPages = Math.ceil(
-      ((await partnersService.all())?.length || 0) / TOTAL_RESULT_PER_PAGE
-    );
+export const getServerSideProps: GetServerSideProps =
+  withPaginationSSR<IPartner>(
+    async (ctx): Promise<GetServerSidePropsResult<PageProps>> => {
+      const req = ctx.req as PageWithPaginationRequestType<IPartner>;
+      const page = req.page;
+      const totalCount = req.totalCount;
+      const totalPages = req.totalPages;
+      const totalResultsAlredyViewed = req.totalResultsAlredyViewed;
 
-    if (Number(page) > totalPages) {
+      const partners = req.data;
       return {
-        notFound: true,
+        props: {
+          partners,
+          page,
+          totalPages,
+          totalCount,
+          totalResultsAlredyViewed,
+        },
       };
-    }
-
-    const partners =
-      (await partnersService.query(
-        `_page=${page}&_limit=${TOTAL_RESULT_PER_PAGE}`
-      )) || [];
-
-    return { props: { partners, pagina: page, totalPages } };
-  }
-);
+    },
+    partnersService
+  );
 
 export default Page;

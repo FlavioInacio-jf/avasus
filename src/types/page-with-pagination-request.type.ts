@@ -1,5 +1,7 @@
 import { NextApiRequest } from 'next';
+import { IPaginate } from './../interfaces/paginate.interface';
 
-export type PageWithPaginationRequestType = NextApiRequest & {
-  page: string;
-};
+export type PageWithPaginationRequestType<T> = NextApiRequest &
+  IPaginate & {
+    data: T[];
+  };
