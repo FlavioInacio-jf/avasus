@@ -2,10 +2,9 @@ import Link from 'next/link';
 import { FC } from 'react';
 import { Tabs } from '../../../components';
 import { TabPanel } from '../../../components/Tabs/TabPanel';
-import { Routes } from '../../../enums';
-import { LatestModulesTab } from './LatestModulesTab';
-import { PopularModulesTab } from './PopularModulesTab';
-import { TopRatedModulesTab } from './TopRatedModulesTab';
+import { QueryKeys, Routes } from '../../../enums';
+import { coursesService } from '../../../services';
+import { Module } from './Module';
 
 export const EducacionalModule: FC = () => {
   return (
@@ -16,13 +15,28 @@ export const EducacionalModule: FC = () => {
         </h2>
         <Tabs>
           <TabPanel title='Mais populares'>
-            <PopularModulesTab />
+            <Module
+              queryKey={QueryKeys.MOST_POPULAR_COURSES}
+              fetch={() =>
+                coursesService.all('_limit=3&_sort=matriculados&_order=desc')
+              }
+            />
           </TabPanel>
           <TabPanel title='Mais bem avaliados'>
-            <TopRatedModulesTab />
+            <Module
+              queryKey={QueryKeys.BEST_RATED}
+              fetch={() =>
+                coursesService.all('_limit=3&_sort=avaliacao&_order=desc')
+              }
+            />
           </TabPanel>
           <TabPanel title='Mais recentes'>
-            <LatestModulesTab />
+            <Module
+              queryKey={QueryKeys.LAST}
+              fetch={() =>
+                coursesService.all('_limit=3&_sort=criado_em&_order=desc')
+              }
+            />
           </TabPanel>
         </Tabs>
 

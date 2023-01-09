@@ -21,7 +21,7 @@ export const BoxPaginate: FC<BoxPaginateProps> = ({
   const isLastPage = totalPages === page;
 
   return (
-    <div>
+    <>
       <span className='inline-block italic mb-8'>
         {totalResultsAlredyViewed} de {totalCount} resultados
       </span>
@@ -58,6 +58,6 @@ export const BoxPaginate: FC<BoxPaginateProps> = ({
           breakClassName='flex items-center justify-center w-[40px] h-[40px] text-gray-500 bg-white border border-gray-200 bg-[#FAFAFA]'
         />
       </footer>
-    </div>
+    </>
   );
 };

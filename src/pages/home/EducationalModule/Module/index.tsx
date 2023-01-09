@@ -3,18 +3,21 @@ import { useQuery } from 'react-query';
 import { CardCourse, CardCourseSkeleton } from '../../../../components';
 import { USE_QUERY_DEFAULT_OPTIONS } from '../../../../constants';
 import { QueryKeys } from '../../../../enums';
-import { coursesService } from '../../../../services';
+import { ICourse } from '../../../../interfaces';
 
-export const TopRatedModulesTab: FC = () => {
+type ModuleProps = {
+  queryKey: string;
+  fetch: (query?: string) => Promise<ICourse[] | undefined>;
+};
+export const Module: FC<ModuleProps> = ({ fetch }) => {
   const { data, isLoading } = useQuery(
-    QueryKeys.BEST_RATED,
-    () => coursesService.all('_limit=3&_sort=avaliacao&_order=desc'),
+    QueryKeys.LAST,
+    () => fetch(),
     USE_QUERY_DEFAULT_OPTIONS
   );
   const courses = data || [];
-
   return (
-    <div className='flex flex-col xss:flex-row xs:flex-row sm:flex-row md:flex-row lg:flex-row xss:flex-wrap xs:flex-wrap sm:flex-wrap md:flex-wrap lg:flex-wrap xss:justify-center xs:justify-center sm:justify-center md:justify-center lg:justify-center gap-8 mt-8'>
+    <div className='flex flex-col xss:flex-row xs:flex-row sm:flex-row md:flex-row lg:flex-row xss:flex-wrap xs:flex-wrap sm:flex-wrap md:flex-wrap lg:flex-wrap xss:justify-center xs:justify-center sm:justify-center md:justify-center lg:justify-center gap-8'>
       {isLoading
         ? Array.from({ length: 3 }, (_, index) => index + 1).map((key) => (
             <CardCourseSkeleton key={key} />

@@ -7,7 +7,7 @@ import {
   useState,
 } from 'react';
 import styles from './styles.module.scss';
-import { TabPanelProps } from './TabPanel';
+import { TabPanelProps } from '../TabPanel';
 
 type ChildrenType = ReactElement<TabPanelProps | ReactElement<TabPanelProps>>;
 
@@ -36,15 +36,15 @@ export const Tabs: FC<TabsProps> = ({ children }) => {
 
   const styleIfCurrentTab = (index: number) => {
     const currentTabStyle =
-      'after:content-[""] after:h-[3px] after:w-full after:bg-[#707070] after:block after:bottom-0 after:rounded-2xl after:mt-3';
+      'text-[#707070] after:content-[""] after:h-[3px] after:w-full after:bg-[#707070] after:block after:bottom-0 after:rounded-2xl after:mt-3 pointer-events-none cursor-none';
 
     if (index === currentTab) return currentTabStyle;
     return '';
   };
   return (
-    <div>
+    <>
       <ul
-        className={`flex text-lg font-semibold whitespace-nowrap scrollbar-hide  ${styles.nav}`}
+        className={`flex text-lg font-semibold whitespace-nowrap scrollbar-hide  ${styles.nav} mb-8 `}
       >
         {tabs.map((tab, index) => (
           <li
@@ -58,6 +58,6 @@ export const Tabs: FC<TabsProps> = ({ children }) => {
         ))}
       </ul>
       {CurrentStepComponent}
-    </div>
+    </>
   );
 };
