@@ -2,16 +2,15 @@ import { FC } from 'react';
 import { useQuery } from 'react-query';
 import { CardCourse, CardCourseSkeleton } from '../../../../components';
 import { USE_QUERY_DEFAULT_OPTIONS } from '../../../../constants';
-import { QueryKeys } from '../../../../enums';
 import { ICourse } from '../../../../interfaces';
 
 type ModuleProps = {
   queryKey: string;
   fetch: (query?: string) => Promise<ICourse[] | undefined>;
 };
-export const Module: FC<ModuleProps> = ({ fetch }) => {
+export const Module: FC<ModuleProps> = ({ fetch, queryKey }) => {
   const { data, isLoading } = useQuery(
-    QueryKeys.LAST,
+    queryKey,
     () => fetch(),
     USE_QUERY_DEFAULT_OPTIONS
   );

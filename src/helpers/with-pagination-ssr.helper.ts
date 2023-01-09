@@ -13,7 +13,7 @@ export const withPaginationSSR = <T>(
       const query = ctx.query as unknown as IPaginate;
       const page = Number(query?.page || '1');
       const totalCount = (await serviceApiRequest.all())?.length || 0;
-      const totalPages = Math.floor(totalCount / TOTAL_RESULT_PER_PAGE);
+      const totalPages = Math.ceil(totalCount / TOTAL_RESULT_PER_PAGE);
       let totalResultsAlredyViewed = page * TOTAL_RESULT_PER_PAGE;
 
       // Check if the page is valid
@@ -29,7 +29,7 @@ export const withPaginationSSR = <T>(
         )) || [];
 
       if (page === totalPages) {
-        totalResultsAlredyViewed -= totalCount % TOTAL_RESULT_PER_PAGE;
+        totalResultsAlredyViewed = totalCount;
       }
       if (page > totalPages) {
         return {

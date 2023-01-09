@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { FC } from 'react';
 import { Tabs } from '../../../components';
 import { TabPanel } from '../../../components/Tabs/TabPanel';
-import { QueryKeys, Routes } from '../../../enums';
+import { CourseQueryKeys, Routes } from '../../../enums';
 import { coursesService } from '../../../services';
 import { Module } from './Module';
 
@@ -16,7 +16,7 @@ export const EducacionalModule: FC = () => {
         <Tabs>
           <TabPanel title='Mais populares'>
             <Module
-              queryKey={QueryKeys.MOST_POPULAR_COURSES}
+              queryKey={CourseQueryKeys.MOST_POPULAR_COURSES}
               fetch={() =>
                 coursesService.all('_limit=3&_sort=matriculados&_order=desc')
               }
@@ -24,7 +24,7 @@ export const EducacionalModule: FC = () => {
           </TabPanel>
           <TabPanel title='Mais bem avaliados'>
             <Module
-              queryKey={QueryKeys.BEST_RATED}
+              queryKey={CourseQueryKeys.BEST_RATED}
               fetch={() =>
                 coursesService.all('_limit=3&_sort=avaliacao&_order=desc')
               }
@@ -32,7 +32,7 @@ export const EducacionalModule: FC = () => {
           </TabPanel>
           <TabPanel title='Mais recentes'>
             <Module
-              queryKey={QueryKeys.LAST}
+              queryKey={CourseQueryKeys.LAST}
               fetch={() =>
                 coursesService.all('_limit=3&_sort=criado_em&_order=desc')
               }

@@ -48,7 +48,7 @@ export const BoxPaginate: FC<BoxPaginateProps> = ({
           activeLinkClassName='!text-white !bg-primary !border-primary'
           nextLinkClassName={csn(
             'flex items-center justify-center h-[40px] px-[15px] bg-[#FAFAFA] rounded-r-lg border border-[#D9D9D9] hover:bg-gray-100 hover:text-gray-700',
-            { hidden: isLastPage }
+            { hidden: isLastPage || totalCount === 1 }
           )}
           previousLinkClassName={csn(
             'flex items-center justify-center h-[40px] px-[15px] bg-[#FAFAFA] rounded-l-lg border border-[#D9D9D9] hover:bg-gray-100 hover:text-gray-700',
