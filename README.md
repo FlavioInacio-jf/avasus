@@ -48,7 +48,7 @@ $ cd avasus
 # Instale as depêndencias
 $ yarn
 
-# Iniciar o projeto(O app estará deponivel no  http://localhost:3000)
+# Iniciar o projeto(O app estará disponível no  http://localhost:3000)
 $ yarn start
 ```
 
