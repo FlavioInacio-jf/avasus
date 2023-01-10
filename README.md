@@ -2,16 +2,6 @@
 <h1 align="center">
 	📱 AVASUS
 </h1>
-<h3 align="center">
-    🌱 O que acha de voltar no tempo e tentar relembrar como era o Orkut? Esse é o intuito dessa aplicação. Um rede social repaginada e com um novo proposito. Aproveitem!!!💚
-</h3>
-
-<p align="center">
-	
-  <img src="https://img.shields.io/static/v1?label=JS&message=99.9%&color=835afd&style=<STYLE>&logo=<LOGO>">
-  <img src="https://img.shields.io/static/v1?label=Scss&message=0.1%&color=835afd&style=<STYLE>&logo=<LOGO>">
-    
-</p>
 
 <h4 align="center"> 
 	🚧  AVASUS 👨🏾‍💻 Finalizado... 🚀 🚧
@@ -19,7 +9,6 @@
 
 <p align="center">
  <a href="#-sobre-o-projeto">Sobre</a> •
- <a href="#-funcionalidades">Funcionalidades</a> • 
  <a href="#-como-executar-o-projeto">Como executar</a> • 
  <a href="#-tecnologias">Tecnologias</a> • 
  <a href="#-autor">Autor</a> • 
@@ -29,20 +18,13 @@
 
 ## 💻 Sobre o projeto
 
-O projeto AVASUS foi desenvolvido para uma seleção de estágio. A aplicação é feita utilizando React e NextJS. A aplicação utliza conceitos muito muito importante do Next.Js, como SSR e SSG. E também conceitos importantes da programação funcional, como HIght Order Function, também foi utilizada. O react-query foi utilizado para auxiliar no consumo a api. Para ajudar no desenvolvimento o uso do TypeScript foi essencial. 
+<p>O projeto AVASUS foi desenvolvido para uma seleção de estágio. A aplicação é feita utilizando React, NextJS e TypeScript.</p>
+<p>A aplicação utiliza conceitos muito muito importantes do Next.Js, como SSR e SSG. E também conceitos importantes da programação funcional, como HIght Order Function, também foram utilizados.</p> 
+O react-query foi utilizado para auxiliar no consumo a api. Para ajudar no desenvolvimento o uso do TypeScript foi essencial. 
+
+<p>Por último, mas não menos importante, o site foi construído pensando na acessibilidade. O desenvolvedor procurou definir os textos alternativos das imagens e também textos em botões que só possuem ícones.</p>
 
 ---
-
-## ⚙️ Funcionalidades
-
-- Se conecte com perfil do Github
-- Tenha acesso a varias informações do seu Github
-- Adicionar comunidades
-- Excluir e destacar perguntas(Administrador)
-- Encerrar sala(Administrador)
----
-
-
 
 ## 🚀 Como executar o projeto
 
